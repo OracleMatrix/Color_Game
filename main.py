@@ -45,6 +45,16 @@ def timer():
         root.after(1000, timer)
 
 
+def restart_game():
+    global time_left
+    global score
+    if time_left == 0:
+        if messagebox.askyesno("Restart", "Do you want to restart?"):
+            time_left = 30
+            score = 0
+            startgame()
+
+
 hint_text_label = CTkLabel(root, text='Color game\nEnter color of the text not text itself!', font=('Helvetica', 20),
                            fg_color="#f1ef75", corner_radius=10)
 hint_text_label.pack(padx=5, pady=10)
@@ -64,6 +74,9 @@ input_entry.place(relx=0.5, rely=0.8, anchor='center')
 
 input_entry_label = CTkLabel(root, text='', font=('Helvetica', 15))
 input_entry_label.place(relx=0.5, rely=0.87, anchor='center')
+
+reset_button = CTkButton(root, text='Reset', command=restart_game)
+reset_button.place(relx=0.5, rely=0.95, anchor='center')
 
 input_entry.bind("<Return>", lambda e: colors_())
 
