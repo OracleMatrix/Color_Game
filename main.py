@@ -1,8 +1,6 @@
-from tkinter import *
 from customtkinter import *
 from tkinter import messagebox
 import random
-import time
 
 root = CTk()
 root.title('Color Game')
